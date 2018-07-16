@@ -58,8 +58,9 @@ mvn -Dgcp.project.name=sample-project compile jib:build
 ```
 
 ### 配備
-下記コマンドを実行し、kubernetesに配備を行います。
-事前に、 `gcloud container clusters get-credentials ～ ` コマンドにてクラスタに接続を行ってください。
+下記コマンドを実行し、kubernetesに配備を行います。<br>
+deployments.xmlのimage部分のGCPプロジェクト名は適宜変更を行ってください。  
+そして、 `gcloud container clusters get-credentials ～ ` コマンドにてクラスタに接続を行ってください。
 
 ```
 spring-boot-sample>kubectl apply -f kubernetes
