@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-sample
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-sample
+      tire: backend
+  template:
+    metadata:
+      labels:
+        app: spring-boot-sample
+        tire: backend
+    spec:
+      containers:
+      - name: spring-boot-sample
+        image: gcr.io/{change-me-gcp-project}/spring-boot-sample:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 150m
+            memory: 512Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        ports:
+        - containerPort: 30000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 30000
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 30
+          initialDelaySeconds: 30
+        readinessProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /health
+            port: 30000
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: SPRING_PROFILES_ACTIVE
+          value: "development"
+        - name: SPRING_SERVER_PORT
+          value: "30000"
+        volumeMounts:
+        - mountPath: /spring-boot/config
+          name: spring-boot-config
+      volumes:
+      - name: spring-boot-config
+        configMap:
+          name: spring-boot-config
+          
