@@ -1,0 +1,27 @@
+kind: ConfigMap
+metadata:
+  name: spring-boot-config
+apiVersion: v1
+data:
+  application.yaml: |-
+    # Spring関連
+    spring:
+      resources:
+        # 静的リソースへのマッピングを解除
+        add-mappings: false
+      mvc:
+        throw-exception-if-no-handler-found: true
+
+    # アプリケーションで利用する設定
+    server:
+      error:
+        path: /error
+      restTemplate:
+        defaultMaxPerRoute: 5
+        maxTotal: 30
+        connectionRequestTimeout: 2000
+        connectTimeout: 2000
+        readTimeout: 3000
+        socketTimeout: 3000
+      context-path: /
+
