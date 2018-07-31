@@ -9,7 +9,7 @@ Dockerfileをシームレスに連携させることができます。
 
 ## 環境
 
-- JDK 8以上
+- JDK 10以上
 - Apache Maven 3.5
 - Google Cloud SDK + gcloud components install docker-credential-gcr インストール環境
 
@@ -21,7 +21,7 @@ Dockerfileをシームレスに連携させることができます。
 
 ```
 <from>
-  <image>openjdk:8u171-jre-alpine</image>
+ <image>openjdk:10-jre-slim</image>
 </from>
 ```
 ベースイメージは、一番軽量となるalpine + jre のイメージを利用しています。
