@@ -25,3 +25,11 @@ data:
         socketTimeout: 3000
       context-path: /
 
+    management:
+        export.simple.enabled: true
+        endpoints.web.exposure.include:
+         - metrics
+         - info
+         - health
+         - env
+
