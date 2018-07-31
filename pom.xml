@@ -62,10 +62,6 @@
           </to>
           <container>
             <jvmFlags>
-              <jvmFlag>-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap</jvmFlag>
-              <jvmFlag>-XX:ParallelGCThreads=1</jvmFlag>
-              <jvmFlag>-XX:CICompilerCount=2</jvmFlag>
-              <jvmFlag>-Djava.util.concurrent.ForkJoinPool.common.parallelism=1</jvmFlag>
               <jvmFlag>-Dcom.sun.management.jmxremote.port=7199</jvmFlag>
               <jvmFlag>-Dcom.sun.management.jmxremote.rmi.port=7199</jvmFlag>
               <jvmFlag>-Dcom.sun.management.jmxremote.authenticate=false</jvmFlag>
