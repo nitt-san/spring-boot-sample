@@ -5,7 +5,7 @@
 
   <groupId>com.example.hrkm</groupId>
   <artifactId>spring-boot-sample</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>spring-boot-sample</name>
@@ -55,13 +55,16 @@
         <version>0.9.6</version>
         <configuration>
           <from>
-            <image>openjdk:10-jre-slim</image>
+            <image>openjdk:11-jdk</image>
           </from>
           <to>
             <image>gcr.io/${gcp.project.name}/${project.name}:${project.version}</image>
           </to>
           <container>
             <jvmFlags>
+<!--
+              <jvmFlag>-XX:StartFlightRecording=filename=/tmp/sample.jfr,settings=/spring-boot/config/jfr-default.jfc</jvmFlag>
+ -->
               <jvmFlag>-Dcom.sun.management.jmxremote.port=7199</jvmFlag>
               <jvmFlag>-Dcom.sun.management.jmxremote.rmi.port=7199</jvmFlag>
               <jvmFlag>-Dcom.sun.management.jmxremote.authenticate=false</jvmFlag>
