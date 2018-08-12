@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-sample
-        image: gcr.io/{change-me-gcp-project}/spring-boot-sample:0.0.1-SNAPSHOT
+        image: gcr.io/{change-me-gcp-project}/spring-boot-sample:0.1.0-SNAPSHOT
         imagePullPolicy: Always
         resources:
           requests:
@@ -29,7 +29,7 @@ spec:
         - containerPort: 30000
         livenessProbe:
           httpGet:
-            path: /health
+            path: /actuator/health
             port: 30000
           periodSeconds: 10
           timeoutSeconds: 5
@@ -39,7 +39,7 @@ spec:
         readinessProbe:
           failureThreshold: 30
           httpGet:
-            path: /health
+            path: /actuator/health
             port: 30000
             scheme: HTTP
           periodSeconds: 10
